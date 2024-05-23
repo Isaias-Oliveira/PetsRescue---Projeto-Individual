@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="Logo PetsRescue.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="css/Login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img src="img/desenho-de-gato-e-cachorro_24640-47224.avif" alt="" srcset="">
+
+        <div class="login">
+            <h1>FAÇA O SEU LOGIN</h1>
+            <b>Usuário</b> <input type="text" placeholder="Insira seu nome de usuário" id="input_usuario"> <br>
+            <b>Senha</b> <input type="password" placeholder="Insira sua senha" id="input_senha"> <br>
+            <button onclick="login()">ENTRAR</button> <br>
+            <div class="centralizar">
+                <a href="Esqueceu a senha.html">Esqueceu a senha?</a>
+                <a href="Cadastro.html">Cadastre-se</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+    function login() {
+
+        const usuarioLogin = input_usuario.value
+        const senhaLogin = input_senha.value
+
+        if (usuarioLogin == '' || senhaLogin == '') {
+            alert("Informações inválidas!")
+        }else{
+            window.location.href = "Index.html"
+        }
+       
+    }
+</script>
