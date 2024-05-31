@@ -1,8 +1,9 @@
 body {
     display: flex;
-    background-color: #87cefa;
+    background-image: url("../assets/imgs/Background-site.jpg");
     margin: 8%;
     padding: 0;
+    background-size: cover;
 }
 
 .container {
@@ -22,7 +23,6 @@ body {
 .login {
     display: flex;
     background-color: #ADD8E6;
-    width: 500px;
     height: 459px;
     margin-left: 125px;
     flex-direction: column;
@@ -36,8 +36,8 @@ body {
 }
 
 .login button {
-    display: flex;
     background-color: #87cefa;
+    color: white;
     font-style: italic;
     border-radius: 5px;
     width: 121px;
@@ -46,9 +46,10 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    align-content: flex-end;
     border: 1px solid #87cefa;
-    margin-left: 115px;
+    align-self: center;
+    margin-top: 30px;
+    font-size: 15px;
 }
 
 .login h1 {
@@ -67,6 +68,12 @@ body {
     height: 30;
     border-radius: 12px;
     background-color: #ffffff;
+    border: 1px solid;
+}
+
+.login ::placeholder{
+    color: #d9d9d9;
+    font-style: italic ;
 }
 
 .container img {

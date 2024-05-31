@@ -1,8 +1,9 @@
 body {
     display: flex;
-    background-color: #AADDDD;
+    background-image: url("../assets/imgs/Background2.jpg");
     margin: 5%;
     padding: 0;
+    background-size: cover;
 }
 
 .container {
@@ -11,7 +12,6 @@ body {
     flex-direction: row-reverse;
     align-items: center;
     align-content: center;
-    justify-content: space-around;
     margin: auto;
     width: 70%;
     height: 400px;
@@ -19,7 +19,7 @@ body {
     border-radius: 25px;
 }
 
-.cadastro {
+.formulario {
     display: flex;
     background-color: #ffffff;
     width: 500px;
@@ -47,13 +47,13 @@ body {
     margin-left: 30px;
 }
 
-.container input {
+.formulario input {
     width: 333px;
     height: 30px;
     border-radius: 12px;
 }
 
-.cadastro button{
+.formulario button{
     display: flex;
     width: 121px;
     height: 27px;

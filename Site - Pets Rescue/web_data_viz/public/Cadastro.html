@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>AquaTech | Cadastro</title>
+    <title></title>
 
-    <script src="./js/sessao.js"></script>
+    <script src="./js/sessaoPET.js"></script>
 
-    <link rel="stylesheet" href="./css/estilo.css" />
-    <link rel="icon" href="img/Logo PetsRescue.jpg" />
+    <link rel="stylesheet" href="./css/CadastroPET.css" />
+    <link rel="icon" href="./assets/imgs/Nova-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,9 +20,6 @@
 </head>
 
 <body onload="listar()">
-    <!--header inicio-->
-
-    <!--header fim-->
 
     <div class="login">
         <div class="alerta_erro">
@@ -31,40 +28,34 @@
             </div>
         </div>
         <div class="container">
-            <div class="card card-cadastro">
-                <h2>Faça o seu cadastro!</h2>
-                <div class="formulario">
-                    <!--
-                         Para inserir mais um campo, copie uma das inputs abaixo.
-                         Assim que inserir vá para o script abaixo.
-                     -->
-                    <div class="campo">
-                        <b>Nome</b> <input type="text" placeholder="Informe seu nome completo" id="input_nome"><br>
-                    </div>
-                    <div class="campo">
-                        <b>Email</b> <input type="text" placeholder="Insira seu email" id="input_email"><br>
-                    </div>
-                    <div class="campo">
-                        <b>Senha</b> <input type="password" placeholder="Informe uma senha" id="input_senha_cadastro">
-                        <br>
-                    </div>
-                    <div class="campo">
-                        <b>Confirme a sua senha</b> <input type="password" placeholder="Confirme a sua senha"
-                            id="input_confirme"> <br>
-                    </div>
-                    <button class="botao" onclick="cadastrar()">Cadastrar</button>
-                </div>
-                <div id="div_aguardar" class="loading-div">
-                </div>
+            <img src="./assets/imgs/cadastrooo.jpg" alt="" srcset="">
 
-                <div id="div_erros_login"></div>
+            <div class="formulario">
+                <h2>Faça o seu cadastro!</h2>
+                <div class="campo">
+                    <b>Nome</b> <input type="text" placeholder="Informe seu nome completo" id="input_nome"><br>
+                </div>
+                <div class="campo">
+                    <b>Email</b> <input type="text" placeholder="Insira seu email" id="input_email"><br>
+                </div>
+                <div class="campo">
+                    <b>Senha</b> <input type="password" placeholder="Informe uma senha" id="input_senha_cadastro">
+                    <br>
+                </div>
+                <div class="campo">
+                    <b>Confirme a sua senha</b> <input type="password" placeholder="Confirme a sua senha"
+                        id="input_confirme"> <br>
+                </div>
+                <button class="botao" onclick="cadastrar()">Concluir cadastro!</button>
             </div>
+            <div id="div_aguardar" class="loading-div">
+            </div>
+
+            <div id="div_erros_login"></div>
         </div>
     </div>
+    </div>
 
-    <!--footer inicio-->
- 
-    <!--footer fim-->
 </body>
 
 </html>
@@ -83,11 +74,11 @@
             nomeVar == "" ||
             emailVar == "" ||
             senhaVar == "" ||
-            confirmacaoSenhaVar == "" 
+            confirmacaoSenhaVar == ""
         ) {
             cardErro.style.display = "block";
             mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+                "(Preencha todos os campos!)";
 
             finalizarAguardar();
             return false;
@@ -119,7 +110,7 @@
                         "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
                     setTimeout(() => {
-                        window.location = "login.html";
+                        window.location = "Login.html";
                     }, "2000");
 
                     limparFormulario();
@@ -135,23 +126,13 @@
 
         return false;
     }
+    function aguardar() {
+    // Função fictícia para aguardar a execução do cadastro
+  }
 
-    function listar() {
-        fetch("/empresas/listar", {
-            method: "GET",
-        })
-            .then(function (resposta) {
-                resposta.json().then((empresas) => {
-                    empresas.forEach((empresa) => {
-                        listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-                    });
-                });
-            })
-            .catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-    }
-
+  function finalizarAguardar() {
+    // Função fictícia para finalizar a espera após o cadastro
+  }
     function sumirMensagem() {
         cardErro.style.display = "none";
     }
