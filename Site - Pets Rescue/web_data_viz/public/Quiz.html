@@ -1,11 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css">
+    <link rel="shortcut icon" href="./assets/imgs/Nova-logo.png" type="image/x-icon">
+    <script src="quiz.js"></script>
 </head>
+
 <body>
-    
+    <div class="container">
+
+        <div class="titulo-quiz">
+            <h1>Venha descobrir qual cachorro combina com o seu perfil!</h1>
+        </div>
+
+        <div class="pergunta" id="pergunta-1" style="display: block;">
+            1: Qual é o seu estilo de vida? <br>
+
+            <button onclick="estiloVida('ativo')">Ativo, gosto de passar tempo ao ar livre.</button><br><br>
+            <button onclick="estiloVida('caseiro')">Mais caseiro, prefiro atividades relaxantes em
+                casa.</button><br><br>
+            <button onclick="estiloVida('mistura')">Gosto de uma mistura de atividades dentro e fora de casa.</button>
+            <br><br>
+
+            <button onclick="proximaPergunta(2)">Próxima Pergunta</button>
+
+        </div> <br>
+        <div class="pergunta" id="pergunta-2" style="display: none;">
+            2: Quanto tempo você está disposto a dedicar aos cuidados diários do seu animal de estimação? <br>
+
+            <button onclick="tempoDisposto('menos')">Menos de uma hora por dia.</button><br><br>
+            <button onclick="tempoDisposto('media')">Cerca de uma a duas horas por dia.</button><br><br>
+            <button onclick="tempoDisposto('mais')">Mais de duas horas por dia.</button> <br><br>
+
+            <button onclick="proximaPergunta(3)">Próxima Pergunta</button>
+        </div> <br>
+        <div class="pergunta" id="pergunta-3" style="display: none;">
+            3: Qual é o tamanho do seu espaço de vida?<br>
+
+            <button onclick="espacoCasa('pequeno')">Apartamento ou casa pequena.</button><br><br>
+            <button onclick="espacoCasa('medio')">Casa média com quintal.</button><br><br>
+            <button onclick="espacoCasa('grande')">Casa grande com muito espaço.</button><br><br>
+
+            <button onclick="proximaPergunta(4)">Próxima Pergunta</button>
+        </div>
+
+        <div class="pergunta" id="pergunta-4" style="display: none;">
+            4: Como você se sente em relação à atividade física diária com seu animal de estimação? <br>
+
+            <button onclick="relacaoAtividade('alta')">Gosto de fazer exercícios vigorosos todos os
+                dias.</button><br><br>
+            <button onclick="relacaoAtividade('moderada')">Prefiro atividades físicas moderadas, como caminhadas
+                regulares.</button><br><br>
+            <button onclick="relacaoAtividade('baixa')">Não me importo muito com exercícios físicos, mas estou disposto
+                a fazer o mínimo necessário.</button><br><br>
+
+            <button onclick="proximaPergunta(5)">Próxima Pergunta</button>
+        </div> <br>
+
+        <div class="pergunta" id="pergunta-5" style="display: none;">
+            5: Qual é a sua preferência em relação a pelos e sujeira? <br>
+
+            <button onclick="preferenciaPelos('nao_importa')">Não me importo com pelos ou sujeira.</button><br><br>
+            <button onclick="preferenciaPelos('curtos')">Prefiro um animal de estimação com pelos curtos e que não solte
+                muito.</button><br><br>
+            <button onclick="preferenciaPelos('minimos')">Tenho alergia a pelos ou prefiro um animal de estimação com
+                pelos mínimos.</button><br><br>
+
+            <button onclick="proximaPergunta(6)">Próxima Pergunta</button>
+        </div><br>
+
+        <div class="pergunta" id="pergunta-6" style="display: none;">
+            6: Qual é a sua experiência anterior com animais de estimação? <br>
+
+            <button onclick="experienciaAnimais('nenhuma')">Nunca tive um animal de estimação antes.</button><br><br>
+            <button onclick="experienciaAnimais('alguns')">Tive alguns animais de estimação ao longo da
+                vida.</button><br><br>
+            <button onclick="experienciaAnimais('experiente')">Sou um dono de animais experiente e conheço bem suas
+                necessidades.</button><br><br>
+
+            <button onclick="proximaPergunta(7)" id="">Próxima Pergunta</button>
+        </div><br>
+
+        <div class="pergunta" id="pergunta-7" style="display: none;">
+            7: Como você se sente em relação ao treinamento e socialização do seu animal de estimação? <br>
+
+            <button onclick="relacaoSocializacao('dedicado')">Estou disposto a investir tempo e esforço em treinamento e
+                socialização.</button><br><br>
+            <button onclick="relacaoSocializacao('facil')">Prefiro um animal de estimação que seja naturalmente fácil de
+                treinar e socializar.</button><br><br>
+            <button onclick="relacaoSocializacao('basico')">Não tenho muito tempo para treinamento e socialização, mas
+                farei o básico.</button><br><br>
+
+            <button onclick="verificar()" id="botaoVerificar">Verificar</button>
+        </div>
+    </div>
+
+   
 </body>
+
 </html>
+
+<script>
+    let respostas = [];
+
+    function proximaPergunta(numero) {
+        let perguntaAtual = document.querySelector('.pergunta[style*="block"]');
+        perguntaAtual.style.display = 'none';
+        document.getElementById('pergunta-' + numero).style.display = 'block';
+    }
+
+    function estiloVida(resposta) {
+        respostas.estiloVida = resposta;
+    }
+
+    function tempoDisposto(resposta) {
+        respostas.tempoDisposto = resposta;
+    }
+
+    function espacoCasa(resposta) {
+        respostas.espacoCasa = resposta;
+    }
+
+    function relacaoAtividade(resposta) {
+        respostas.relacaoAtividade = resposta;
+    }
+
+    function preferenciaPelos(resposta) {
+        respostas.preferenciaPelos = resposta;
+    }
+
+    function experienciaAnimais(resposta) {
+        respostas.experienciaAnimais = resposta;
+    }
+
+    function relacaoSocializacao(resposta) {
+        respostas.relacaoSocializacao = resposta;
+    }
+
+    function verificar() {
+        let perfil = "";
+        if (respostas.estiloVida == '' || respostas.tempoDisposto == '' || respostas.espacoCasa == '' || respostas.relacaoAtividade == '' || respostas.preferenciaPelos == '' || respostas.experienciaAnimais == '' || respostas.relacaoSocializacao == '') {
+            perfil = "Preencha uma das alternativas para prosseguir!"
+        }
+        else if (respostas.estiloVida === "ativo" && respostas.tempoDisposto === "mais" && respostas.espacoCasa === "grande" && respostas.relacaoAtividade === "alta" && respostas.preferenciaPelos === "nao_importa" && respostas.experienciaAnimais === "experiente" && respostas.relacaoSocializacao === "dedicado") {
+            perfil = "Um cão de raça ativa e energética, como um Border Collie ou um Pastor Alemão, seria ideal para você.";
+        } else if (respostas.estiloVida === "caseiro" && respostas.tempoDisposto === "menos" && respostas.espacoCasa === "pequeno" && respostas.relacaoAtividade === "baixa" && respostas.preferenciaPelos === "minimos" && respostas.experienciaAnimais === "nenhuma" && respostas.relacaoSocializacao === "basico") {
+            perfil = "Um cão de raça pequena e de baixa manutenção, como um Shih Tzu ou um Buldogue Francês, seria ideal para você.";
+        } else if (respostas.estiloVida === "mistura" && respostas.tempoDisposto === "media" && respostas.espacoCasa === "medio" && respostas.relacaoAtividade === "moderada" && respostas.preferenciaPelos === "curtos") {
+            perfil = "Um cão de raça versátil e amigável, como um Labrador ou um Golden Retriever, seria ideal para você.";
+        } else {
+            perfil = "Com base nas suas respostas, um cão mestiço ou uma raça de temperamento equilibrado seria ideal para você.";
+        }
+
+        alert(perfil);
+
+
+        window.location = "Dashboard.html"
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar,
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML =
+                        "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(() => {
+                        window.location = "Login.html";
+                    }, "2000");
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                finalizarAguardar();
+            });
+
+        return false;
+
+    }
+
+
+</script>

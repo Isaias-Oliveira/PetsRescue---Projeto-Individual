@@ -233,7 +233,7 @@ a .logo {
 }
 
 #importância-adoção .container p {
-    color: #2196f3;
+    color: black;
     display: flex;
     text-align: start;
     font-size: 25px;
@@ -247,7 +247,7 @@ a .logo {
 
 #meus-pets {
     background-image: url("../assets/imgs/Background-site.jpg");
-    background-size: contain;
+    background-size: cover;
     width: 99.46vw;
 }
 
@@ -268,6 +268,16 @@ a .logo {
 }
 
 #meus-pets p {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+#meus-pets h4{
+    font-size: 40px;
+    color: #2196f3;
+    display: flex;
+    font-style: normal;
+    margin-bottom: 20px;
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
 }
